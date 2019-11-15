@@ -1,0 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	background-color: #F1F1F1;
+}
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+a {
+	text-decoration: none;
+}
+.avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+h2{
+	color: #42B983;
+	font-weight: 500;
+}
+.back-color {
+	background: linear-gradient(#e66465, #9198e5);
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 7x 10px 0 rgba(0,0,0,0.12);
+	opacity: 0.7;
+}

@@ -1,0 +1,82 @@
+/* 风格样式设置 */
+.yv-title{
+	font-size: 18px;
+	font-weight: 700px;
+	color: rgba(0,0,0,0.8);
+	
+	
+}
+.yv-sub-title{
+	font-size: 16px;
+	font-weight: 500px;
+	color: rgba(0,0,0,0.7);
+	
+}
+.yv-meta{
+	font-size: 12px;
+	color: #b4b4b4;
+	
+}
+/* 主题设置 */
+.yv-primary-theme{
+	background-color: #009688;
+	color: #fff;
+}
+.yv-warning-theme{
+	background-color: #fb8c00;
+	color: #fff;
+}
+.yv-success-theme{
+	background-color: #4caf50;
+	color: #fff;
+}
+.yv-disable-theme{
+	background-color: #e0e0e0;
+	color: #fff;
+}
+/* 按钮设置 */
+.yv-btn{
+	border: none;
+	cursor: pointer;
+	margin: 5px;
+	
+}
+.yv-btn-round{
+	border-radius: 15px;
+}
+.yv-btn-circle{
+	border-radius: 50%;
+	
+}
+.yv-btn-nomal{
+	width: 120px;
+	height: 35px;
+	
+}
+.yv-btn-large{
+	width: 140px;
+	height: 45px;
+}
+/* 表单元素 */
+.yv-input-box{
+	display: block;
+	border:1px solid#eee;
+	border-radius: 5px;
+	height: 35px;
+	
+}
+/* 阴影样式 */
+.yv-shadow{
+	box-shadow: 2px 5px 10px #aaa;
+}
+/* 头像样式 */
+.yv-avatar{
+	width: 35px;
+	height: 50px;
+	border-radius: 50%;	
+}
+/* 背景颜色设置 */
+.yv-background{
+	background-color: ;
+	
+}
