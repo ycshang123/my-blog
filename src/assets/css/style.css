@@ -2,9 +2,7 @@
 .yv-title{
 	font-size: 18px;
 	font-weight: 700px;
-	color: rgba(0,0,0,0.8);
-	
-	
+	color: rgba(0,0,0,0.8);	
 }
 .yv-sub-title{
 	font-size: 16px;
@@ -38,7 +36,10 @@
 .yv-btn{
 	border: none;
 	cursor: pointer;
+	border-radius: 15px;
 	margin: 5px;
+	font-size: 20px;
+	font-weight: 400;
 	
 }
 .yv-btn-round{
@@ -49,13 +50,56 @@
 	
 }
 .yv-btn-nomal{
-	width: 120px;
-	height: 35px;
+	width: 80px;
+	height: 45px;
 	
 }
 .yv-btn-large{
-	width: 140px;
+	width: 160px;
 	height: 45px;
+}
+.yv-btn-dyellow{
+	background-color:#fff176  ;
+	color:#fffde7 ;
+}
+.yv-btn-yellow{
+	background-color:#fff9c4 ;
+	color:#f57f17 ;
+}
+.yv-btn-green{
+	background-color: #b9f6ca;
+	color:#69f0ae ;
+}
+.yv-btn-dgreen{
+	background-color: #00e676;
+	color: #ccff90;
+}
+.yv-btn-blue{
+	background-color: #e1f5fe;
+	color: #03a9f4;
+}
+.yv-btn-dblue{
+	background-color:#01579b ;
+	color:#e1f5fe ;
+}
+.yv-btn-mblue{
+	background-color: #00acc1;
+	color:#e1f5fe  ;
+}
+.yv-btn-lime{
+	background-color: #d4e157;
+	color:#f9fbe7;
+	
+}
+.yv-btn-dlime{
+	background-color:#827717 ;
+	color: #e6ee9c ;
+	
+}
+.yv-btn-mlime{
+	background-color:#e6ee9c  ;
+	color:#cddc39;
+	
 }
 /* 表单元素 */
 .yv-input-box{

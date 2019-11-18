@@ -22,43 +22,36 @@ const routes = [
   {
     path : '/',
 	component: Nav,
-	// children:[{
-	// 	path:'/',
-	// 	redirect:'/index'
-	// },
-	// {
-	// 	path:'a',
-	// 	component:Article
-	// },
-	// {
-	// 	path:'c',
-	// 	component:Collection
-	// },
-	// {
-	// 	path:'u',
-	// 	component:User
-	// },
-	// {
-	// 	path:'sign',
-	// 	component:Sign
-	// }
-	// 	children:[
-	// 		{
-	// 			path:'follow',
-	// 			component:UserFollows
-	// 		},
-	// 		{
-	// 			path:'fans',
-	// 			component:UserFans
-	// 		}
-	// 	]
-	// }
-	// ]
-	// ]
+	children:[
+		{
+		path:'/',
+		redirect:'index'
+	},
+	{
+		path:'index',
+		component:Index
+	},
+	{
+		path:'a',
+		component:Article
+	},
+	{
+		path:'c',
+		component:Collection
+	},
+	{
+		path:'u',
+		component:User
+	}
+  ]
   },
   {
    path : '/sign',
-   component:Sign
+   component:Sign,
+   children:[{
+	   path:"/",
+	   router:Nav
+   }]
   }
 ]
 

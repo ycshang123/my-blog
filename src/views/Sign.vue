@@ -1,6 +1,6 @@
 <template>
 	<div class="body">
-		<p>博客园</p>
+		<p><router-link to="/">博客园</router-link></p>
 		<div class="box yv-shadow">
 			<div class="tab">
 				<span class="tab-item" :class="{ active: isActive }" @click="changeTab" >登录</span>
@@ -135,7 +135,7 @@ p {
 	height: 40%;
 }
 .text {
-	width: 300px;
+	width: 80%;
 	height: 40px;
 	border-radius: 10px;
 }
@@ -148,11 +148,11 @@ p {
 }
 button {
 	height: 40px;
-	width: 280px;
+	width: 75%;
 	background-color: #3194d0;
 	border-radius: 20px;
 	color: white;
-	margin-left: 15%;
+	margin-left: 12%;
 	margin-top: 3%;
 }
 .bottom {
