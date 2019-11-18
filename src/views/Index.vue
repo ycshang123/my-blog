@@ -43,9 +43,10 @@
 				<br>
 				<h2>热门作者</h2>
 			</div>
-			<div class="author">
-				
-			</div>
+			<!-- <div class="author">
+			<div class="author-avatar"></div>	
+			<div class="author-list"></div>
+			</div> -->
 			<!-- <div class="author" v-for="(user,index) in users.slice(1,8)" :key="index">
 				<div class="author-list">
 				<div class="user-avater">
@@ -63,7 +64,6 @@ export default {
 	data() {
 		return {
 			articles: [],
-			users:[],
 		};
 	},
 	created() {
@@ -73,11 +73,8 @@ export default {
 			for (var i = 0; i < this.articles.length; i++) {
 				this.articles[i].cover = this.getImage(this.articles[i].cover);
 			}
-		});
-		this.axios.get('http://localhost:8080/api/sign-in').then(res =>{
-			console.log(res.data.data);
-			this.users= res.data.data;
 		})
+		
 	},
 	methods: {
 		getImage(url) {
