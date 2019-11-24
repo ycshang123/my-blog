@@ -25,11 +25,12 @@ const routes = [
 	children:[
 		{
 		path:'/',
-		redirect:'index'
+		redirect:'index',
+		
 	},
 	{
 		path:'index',
-		component:Index
+		component:Index,
 	},
 	{
 		path:'a',
@@ -42,7 +43,11 @@ const routes = [
 	{
 		path:'u',
 		component:User
-	}
+	},
+	{
+	path:'articleDetail',
+	component:ArticleDetail	
+	},
   ]
   },
   {

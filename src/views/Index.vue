@@ -1,28 +1,28 @@
 <template>
 	<div class="container">
 		<div class="yv-col-8">
-			<div class="article-list" v-for="(article, index) in articles.slice(20,30)" :key="index">
+			<div class="article-list" v-for="(article, index) in articles" :key="index">
 				<div class="main">
 					<div class="content">
-						<p style="font-weight:600;font-size: 16px;">{{ article.title }}</p>
+						<p style="font-weight:600;font-size: 16px;"><router-link to="articleDetail">{{article.title}}</router-link></p>
 						<br />
-						<p style="color: #9e9e9e;font-size: 14px;">{{ article.intro.substring(0, 120) }}......</p>
+						<p style="color: #9e9e9e;font-size: 14px;">{{article.intro}}</p>
 					</div>
 					<div class="avatar"><img :src="article.cover" /></div>
 				</div>
 				<div class="logo">
 					<span style="margin: 6px;">
 						<i class="iconfont" style="color:#EDC1C5">&#xe60d;</i>
-						{{ article.diamond }}
+						{{article.diamond}}
 					</span>
-					<span style="margin: 6px;">{{ article.nickname }}</span>
+					<span style="margin: 6px;">{{article.nickname}}</span>
 					<span style="margin: 6px;">
 						<i class="iconfont ">&#xe60a;</i>
-						{{ article.comments }}
+						{{article.comments}}
 					</span>
 					<span style="margin: 6px;">
 						<i class="iconfont">&#xe8ad;</i>
-						{{ article.likes }}
+						{{article.likes}}
 					</span>
 				</div>
 			</div>
@@ -63,23 +63,28 @@
 export default {
 	data() {
 		return {
-			articles: [],
+			articles: []
 		};
 	},
 	created() {
-		this.axios.get('http://localhost:8080/api/article').then(res => {
-			console.log(res.data.data);
-			this.articles = res.data.data;
-			for (var i = 0; i < this.articles.length; i++) {
-				this.articles[i].cover = this.getImage(this.articles[i].cover);
-			}
-		})
+		this.axios.get(this.GLOBAL.baseUrl + '/article').then(res => {
+					// console.log(res.data.data);
+					this.articles = res.data.data;
+				})
+		// this.axios.get('localhost:8080/api/article').then(res => {
+			// console.log(res.data.data);
+			// this.articles = res.data.data;
+			// localStorage.articles = JSON.stringify(res.data.data);
+			// for (var i = 0; i < this.articles.length; i++) {
+			// 	this.articles[i].cover = this.getImage(this.articles[i].cover);
+			// }
+		// })
 		
 	},
 	methods: {
-		getImage(url) {
-			return 'https://images.weserv.nl/?url=' + url;
-		}
+		// getImage(url) {
+		// 	return 'https://images.weserv.nl/?url=' + url;
+		// }
 	},
 	computed: {}
 };
