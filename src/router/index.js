@@ -37,6 +37,10 @@ const routes = [
 		component:Article
 	},
 	{
+	path:'article/:id',
+	component:ArticleDetail	
+	},
+	{
 		path:'c',
 		component:Collection
 	},
@@ -44,10 +48,7 @@ const routes = [
 		path:'u',
 		component:User
 	},
-	{
-	path:'articleDetail',
-	component:ArticleDetail	
-	},
+	
   ]
   },
   {

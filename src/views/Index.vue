@@ -1,29 +1,30 @@
 <template>
 	<div class="container">
 		<div class="yv-col-8">
-			<div class="article-list" v-for="(article, index) in articles" :key="index">
+			<div class="article-list" v-for="(item, index) in articlesVo" :key="index">
 				<div class="main">
 					<div class="content">
-						<p style="font-weight:600;font-size: 16px;"><router-link to="articleDetail">{{article.title}}</router-link></p>
+						<p style="font-weight:600;font-size: 16px;"><router-link to="{path:'/article/'+item.article.id}">{{item.article.title}}</router-link></p>
 						<br />
-						<p style="color: #9e9e9e;font-size: 14px;">{{article.intro}}</p>
+						<p style="color: #9e9e9e;font-size: 14px;">{{item.article.intro}}</p>
 					</div>
-					<div class="avatar"><img :src="article.cover" /></div>
+					<div class="avatar"><img :src="item.article.cover" /></div>
 				</div>
 				<div class="logo">
 					<span style="margin: 6px;">
 						<i class="iconfont" style="color:#EDC1C5">&#xe60d;</i>
-						{{article.diamond}}
+						{{item.article.diamond}}
 					</span>
-					<span style="margin: 6px;">{{article.nickname}}</span>
+					<span style="margin: 6px;">{{item.author.nickname}}</span>
 					<span style="margin: 6px;">
 						<i class="iconfont ">&#xe60a;</i>
-						{{article.comments}}
+						{{item.article.comments}}
 					</span>
 					<span style="margin: 6px;">
 						<i class="iconfont">&#xe8ad;</i>
-						{{article.likes}}
+						{{item.article.likes}}
 					</span>
+			
 				</div>
 			</div>
 		</div>
@@ -43,18 +44,11 @@
 				<br>
 				<h2>热门作者</h2>
 			</div>
-			<!-- <div class="author">
-			<div class="author-avatar"></div>	
-			<div class="author-list"></div>
-			</div> -->
-			<!-- <div class="author" v-for="(user,index) in users.slice(1,8)" :key="index">
-				<div class="author-list">
-				<div class="user-avater">
-				<img :src= "user.avater">	
-				</div>
-				<div class=""></div>
-				</div>
-			</div> -->
+		<div class="author">
+			<div class="avatar"></div>
+			<div class="content"></div>
+			<div class="btn"></div>
+		</div>
 		</div>
 	</div>
 </template>
@@ -63,28 +57,28 @@
 export default {
 	data() {
 		return {
-			articles: []
+			articlesVo: [],
+			users:[]
 		};
 	},
 	created() {
 		this.axios.get(this.GLOBAL.baseUrl + '/article').then(res => {
 					// console.log(res.data.data);
-					this.articles = res.data.data;
-				})
-		// this.axios.get('localhost:8080/api/article').then(res => {
-			// console.log(res.data.data);
-			// this.articles = res.data.data;
-			// localStorage.articles = JSON.stringify(res.data.data);
-			// for (var i = 0; i < this.articles.length; i++) {
-			// 	this.articles[i].cover = this.getImage(this.articles[i].cover);
-			// }
-		// })
+					this.articlesVo = res.data.data;
+					for (var i = 0; i < this.articlesVo.length; i++) {
+						this.articlesVo[i].cover = this.getImage(this.articlesVo[i].cover);
+					}
+					
+				});
+		this.axios.get(this.GLOBAL.baseUrl+'/user').then(res =>{
+			this.users = res.data.data;
+		})
 		
 	},
 	methods: {
-		// getImage(url) {
-		// 	return 'https://images.weserv.nl/?url=' + url;
-		// }
+		getImage(url) {
+			return 'https://images.weserv.nl/?url=' + url;
+		}
 	},
 	computed: {}
 };
@@ -148,19 +142,9 @@ export default {
 	width: 80%;
 	height: 300px;
 }
-.author {
-	width: 90%;
-	height: 600px;
-}
-.author-list{
-	width:80%;
-	height: 150px;
-	display: flex;
-	justify-content: space-around;
-}
-.user-avater{
-	width: 50px;
-	height: 50px;
-	border-radius: 50px;
-}
+/* .author{
+	height: 120px;
+	border: 1px solid #01579B;
+} */
+
 </style>

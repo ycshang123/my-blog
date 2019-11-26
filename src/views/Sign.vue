@@ -13,7 +13,7 @@
 					<label class="verify-label">{{ passwordTip }}</label>
 					<input type="password" class="text" placeholder="请输入密码" v-model="userDto.password" autofocus="autofocus" />
 					<div class="verify-box">
-						<input type="text" placeholder="请输入验证码" style="width: 35%;height: 40px;border-radius:10px ;" />
+						<input type="text" placeholder="请输入验证码" style="width: 35%;height: 40px;border-radius:10px ;" v-model="userDto.code"  />
 						<img class="verify" @click="refresh" ref="codeImg" />
 					</div>
 				</div>
@@ -28,7 +28,7 @@
 					<button
 						class="btn"
 						@click="
-							signIn();
+							signIn(userDto);
 							submit();
 						"
 					>
@@ -52,7 +52,7 @@
 					<input type="password" class="text" placeholder="再次确认密码" v-model="password" />
 				</div>
 				<div class="verify">
-					<input type="text" style="border-radius: 10px;width: 45%;height: 40px;" placeholder="请输入验证码" />
+					<input type="text" style="border-radius: 10px;width: 45%;height: 40px;" placeholder="请输入验证码" v-model="userDto.code" />
 					<button class="yv-btn yv-btn-nomal yv-btn-dblue" :disabled="btnDisabled">{{ msg }}</button>
 				</div>
 				<button
@@ -97,7 +97,6 @@ export default {
 	},
 	created() {
 		this.axios.get(this.GLOBAL.baseUrl + '/code', { responseType: 'blob' }).then(res => {
-			// console.log(res);
 			var img = this.$refs.codeImg;
 			let url = window.URL.createObjectURL(res.data);
 			img.src = url;
@@ -123,12 +122,13 @@ export default {
 					'Access-Token': this.token
 				}
 			}).then(res => {
+				alert('123')
 				if (res.data.msg === '成功') {
 					alert('登录成功');
 					localStorage.setItem('user', JSON.stringify(res.data.data));
 					this.$router.push('/');
 				} else {
-					alert(res.data.msg);
+					// alert(res.data.msg);
 					this.userDto.code = '';
 				}
 			});
@@ -137,7 +137,7 @@ export default {
 			this.axios.get(this.GLOBAL.baseUrl + '/code', { responseType: 'blob' }).then(res => {
 				console.log(res);
 				var img = this.$refs.codeImg;
-				let url = window.URL.createObjectURL(res.data);
+				let url = window.URL.createObjectURL(res.data.data);
 				img.src = url;
 			});
 		},
